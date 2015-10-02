@@ -1,0 +1,95 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    android:paddingBottom="0dp" tools:context=".MainActivity"
+    android:background="#41a3ac">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="List"
+        android:id="@+id/listButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:clickable="false"
+        android:layout_alignBottom="@+id/nearbyButton"
+        android:maxWidth="80dp"
+        android:minWidth="70dp"
+        android:minHeight="70dp"
+        android:maxHeight="80dp"
+        android:background="#41a3ac" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search"
+        android:id="@+id/searchButton"
+        android:clickable="false"
+        android:maxWidth="80dp"
+        android:minWidth="70dp"
+        android:minHeight="70dp"
+        android:maxHeight="80dp"
+        android:layout_alignTop="@+id/listButton"
+        android:layout_toRightOf="@+id/listButton"
+        android:layout_toEndOf="@+id/listButton"
+        android:background="#41a3ac" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nearby"
+        android:id="@+id/nearbyButton"
+        android:clickable="false"
+        android:maxWidth="80dp"
+        android:minWidth="80dp"
+        android:minHeight="80dp"
+        android:layout_alignTop="@+id/activityButton"
+        android:layout_centerHorizontal="true"
+        android:background="#41a3ac" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Activity"
+        android:id="@+id/activityButton"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/nearbyButton"
+        android:layout_toEndOf="@+id/nearbyButton"
+        android:clickable="false"
+        android:maxWidth="80dp"
+        android:minWidth="80dp"
+        android:minHeight="70dp"
+        android:maxHeight="80dp"
+        android:background="#41a3ac" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/eventListView"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/listButton"
+        android:layout_alignStart="@+id/listButton"
+        android:layout_marginTop="44dp"
+        android:layout_above="@+id/listButton" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="More"
+        android:id="@+id/moreButton"
+        android:clickable="false"
+        android:maxWidth="70dp"
+        android:minWidth="70dp"
+        android:maxHeight="70dp"
+        android:minHeight="70dp"
+        android:layout_alignTop="@+id/activityButton"
+        android:layout_toRightOf="@+id/activityButton"
+        android:layout_toEndOf="@+id/activityButton"
+        android:background="#41a3ac" />
+
+</RelativeLayout>
