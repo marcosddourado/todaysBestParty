@@ -1,4 +1,4 @@
-package com.example.kyle.testprogram;
+package unlv.com.bestpartytoday;
 
 /**
  * Created by Kyle on 9/26/2015.
