@@ -8,14 +8,14 @@ public class Event {
     private String name;
     private String time;
     private float rating;
-    private int eventImage;
+    private String image;
 
-    public Event(String name, String time, float rating, int eventImage) {
+    public Event(String name, String time, float rating, String image) {
         super();
         this.name = name;
         this.time = time;
         this.rating = rating;
-        this.eventImage = eventImage;
+        this.image = image;
     }
 
     public String getName() {
