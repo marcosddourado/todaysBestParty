@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 22
-    buildToolsVersion "23.0.0 rc2"
+    buildToolsVersion "23.0.1"
 
     defaultConfig {
         applicationId "unlv.com.bestpartytoday"
@@ -19,6 +19,7 @@ android {
     }
     packagingOptions {
         exclude "META-INF/LICENSE"
+        exclude 'META-INF/LICENSE-FIREBASE.txt'
         exclude "META-INF/NOTICE"
     }
 }
@@ -29,4 +30,5 @@ dependencies {
     compile 'com.google.android.gms:play-services:7.8.0'
     compile 'com.firebase:firebase-client-android:2.3.1+'
     compile 'com.firebase:geofire:1.1.1+'
+    compile 'com.firebase:firebase-client-android:2.4.0+'
 }
