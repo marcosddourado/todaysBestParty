@@ -34,7 +34,8 @@
             android:clickable="true"
             android:layout_alignBottom="@+id/nearbyButton"
             android:background="#41a3ac"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:src="@drawable/ic_home_black_48dp" />
 
         <ImageButton
             android:layout_width="0dp"
@@ -46,7 +47,8 @@
             android:layout_toRightOf="@+id/listButton"
             android:layout_toEndOf="@+id/listButton"
             android:layout_weight="1"
-            android:background="#41a3ac" />
+            android:background="#41a3ac"
+            android:src="@drawable/ic_search_black_48dp" />
 
         <ImageButton
             android:layout_width="0dp"
@@ -57,7 +59,8 @@
             android:layout_alignTop="@+id/activityButton"
             android:layout_centerHorizontal="true"
             android:background="#41a3ac"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:src="@drawable/ic_location_on_black_48dp" />
 
         <ImageButton
             style="?android:attr/buttonStyleSmall"
@@ -83,7 +86,8 @@
             android:layout_toRightOf="@+id/activityButton"
             android:layout_toEndOf="@+id/activityButton"
             android:background="#41a3ac"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:src="@drawable/ic_settings_black_48dp" />
     </LinearLayout>
 
 </RelativeLayout>
