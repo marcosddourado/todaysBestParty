@@ -9,7 +9,11 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 
+import com.firebase.client.ChildEventListener;
+import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.Query;
 import com.firebase.geofire.GeoLocation;
 import com.firebase.geofire.GeoQuery;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -43,10 +47,7 @@ public class MapsActivity extends FragmentActivity  implements GoogleMap.OnCamer
         this.map = mapFragment.getMap();
         this.map.setMyLocationEnabled(true);
 
-        // Add a new marker to the map
-        Marker marker = this.map.addMarker(new MarkerOptions().position(new LatLng(36.112354, -115.172482)));
-
-        map.setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {
+        this.map.setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {
             @Override
             public void onMyLocationChange(Location usrLocation) {
                 LatLng location = new LatLng(usrLocation.getLatitude(), usrLocation.getLongitude());
@@ -55,6 +56,48 @@ public class MapsActivity extends FragmentActivity  implements GoogleMap.OnCamer
                 searchCircle.setFillColor(Color.argb(30, 102, 163, 194));
                 searchCircle.setStrokeColor(Color.argb(30, 0, 0, 0));
                 map.moveCamera(CameraUpdateFactory.newLatLngZoom(location, INITIAL_ZOOM_LEVEL));
+            }
+        });
+
+        setMarkers(this.map);
+    }
+
+
+    private void setMarkers(final GoogleMap map) {
+
+        Firebase eventsRef = new Firebase("https://fiery-heat-4759.firebaseio.com/Events");
+
+        Query queryRef = eventsRef.orderByChild("rating");
+
+        queryRef.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot snapshot, String previousChild) {
+
+                String name = String.valueOf(snapshot.child("name").getValue());
+                float latitude = Float.parseFloat(String.valueOf(snapshot.child("latitude").getValue()));
+                float longitude = Float.parseFloat(String.valueOf(snapshot.child("longitude").getValue()));
+                String desc = String.valueOf(snapshot.child("short_desc").getValue());
+                if(latitude != 0) {
+                    map.addMarker(new MarkerOptions().snippet(desc)
+                            .position(new LatLng(latitude, longitude))
+                            .title(name));
+                }
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
             }
         });
     }
