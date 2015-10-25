@@ -39,18 +39,13 @@ public class MainActivity extends AppCompatActivity {
         getDataFromFB();
 
         nearbyButton = (ImageButton) findViewById(R.id.nearbyButton);
-        Log.i("test", "1");
-
         nearbyButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View arg0) {
-
-                Log.i("test", "2");
                 Intent intent = new Intent
                         (MainActivity.this, MapsActivity.class);
                 startActivity(intent);
-                Log.i("test", "3");
             }
         });
     }
