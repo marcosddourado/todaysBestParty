@@ -1,10 +1,15 @@
 package unlv.com.bestpartytoday;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -14,6 +19,7 @@ import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.Query;
+import com.firebase.client.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -22,6 +28,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private List<Event> events = new ArrayList<Event>();
+    private ImageButton nearbyButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +37,26 @@ public class MainActivity extends AppCompatActivity {
         Firebase.setAndroidContext(this);
 
         getDataFromFB();
+
+        nearbyButton = (ImageButton) findViewById(R.id.nearbyButton);
+        Log.i("test", "1");
+
+        nearbyButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+
+                Log.i("test", "2");
+                Intent intent = new Intent
+                        (MainActivity.this, MapsActivity.class);
+                startActivity(intent);
+                Log.i("test", "3");
+            }
+        });
     }
 
     private void getDataFromFB() {
+
         Firebase eventsRef = new Firebase("https://fiery-heat-4759.firebaseio.com/Events");
 
         Query queryRef = eventsRef.orderByChild("rating");
