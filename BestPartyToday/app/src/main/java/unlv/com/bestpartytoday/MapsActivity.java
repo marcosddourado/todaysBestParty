@@ -35,6 +35,7 @@ public class MapsActivity extends FragmentActivity  implements GoogleMap.OnCamer
     private GoogleMap map;
     private Circle searchCircle;
     private GeoQuery geoQuery;
+    private LatLng location;
 
 
     @Override
@@ -50,7 +51,7 @@ public class MapsActivity extends FragmentActivity  implements GoogleMap.OnCamer
         this.map.setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {
             @Override
             public void onMyLocationChange(Location usrLocation) {
-                LatLng location = new LatLng(usrLocation.getLatitude(), usrLocation.getLongitude());
+                location = new LatLng(usrLocation.getLatitude(), usrLocation.getLongitude());
 
                 searchCircle = map.addCircle(new CircleOptions().center(location).radius(5000));
                 searchCircle.setFillColor(Color.argb(30, 102, 163, 194));

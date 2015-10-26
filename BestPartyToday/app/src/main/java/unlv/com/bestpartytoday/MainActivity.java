@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -109,11 +110,16 @@ public class MainActivity extends AppCompatActivity {
                 itemView = getLayoutInflater().inflate(R.layout.eventlistlayout, parent, false);
             }
 
+
             //reversing the order of the list and setting it on the Actvity
             Event currentEvent = events.get(events.size()-(position+1));
 
             TextView nameText = (TextView) itemView.findViewById(R.id.list_eventName);
             nameText.setText(currentEvent.getName());
+
+            String background = currentEvent.getImage();
+            int drawableID = getResources().getIdentifier(background, "drawable", getPackageName());
+            itemView.setBackgroundResource(drawableID);
 
             TextView timeText = (TextView) itemView.findViewById(R.id.list_eventTime);
             timeText.setText(currentEvent.getTime());
