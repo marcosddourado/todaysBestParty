@@ -1,6 +1,7 @@
 package unlv.com.bestpartytoday;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
@@ -8,6 +9,9 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.firebase.client.ChildEventListener;
 import com.firebase.client.DataSnapshot;
@@ -34,8 +38,9 @@ public class MapsActivity extends FragmentActivity  implements GoogleMap.OnCamer
 
     private GoogleMap map;
     private Circle searchCircle;
-    private GeoQuery geoQuery;
     private LatLng location;
+    private ImageButton listButton;
+    private GeoQuery geoQuery;
 
 
     @Override
@@ -43,7 +48,7 @@ public class MapsActivity extends FragmentActivity  implements GoogleMap.OnCamer
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sfvehicles);
         Firebase.setAndroidContext(this);
-        SupportMapFragment mapFragment = (SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map);
+        SupportMapFragment mapFragment = (SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map_fragment);
 
         this.map = mapFragment.getMap();
         this.map.setMyLocationEnabled(true);
@@ -61,6 +66,17 @@ public class MapsActivity extends FragmentActivity  implements GoogleMap.OnCamer
         });
 
         setMarkers(this.map);
+
+        listButton = (ImageButton) findViewById(R.id.listButton);
+        listButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+                Intent intent = new Intent
+                        (MapsActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 

@@ -110,7 +110,6 @@ public class MainActivity extends AppCompatActivity {
                 itemView = getLayoutInflater().inflate(R.layout.eventlistlayout, parent, false);
             }
 
-
             //reversing the order of the list and setting it on the Actvity
             Event currentEvent = events.get(events.size()-(position+1));
 
