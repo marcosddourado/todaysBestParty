@@ -1,11 +1,14 @@
 package unlv.com.bestpartytoday;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.location.Location;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.client.ChildEventListener;
 import com.firebase.client.DataSnapshot;
@@ -21,6 +25,11 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.Query;
 import com.firebase.client.ValueEventListener;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.Circle;
+import com.google.android.gms.maps.model.CircleOptions;
+import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -65,8 +74,10 @@ public class MainActivity extends AppCompatActivity {
                 String time = String.valueOf(snapshot.child("time").getValue());
                 float rating = Float.parseFloat(String.valueOf(snapshot.child("rating").getValue()));
                 String image = String.valueOf(snapshot.child("image").getValue());
+                float latitude = Float.parseFloat(String.valueOf(snapshot.child("latitude").getValue()));
+                float longitude = Float.parseFloat(String.valueOf(snapshot.child("longitude").getValue()));
 
-                addEvents(name, time, rating, image);
+                addEvents(name, time, rating, image, latitude, longitude);
                 putEventsOnView();
             }
 
@@ -88,18 +99,55 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void addEvents(String name, String time, float rating, String image) {
-        events.add(new Event(name, time, rating, image));
+    private void addEvents(String name, String time, float rating, String image, float latitude, float longitude) {
+        events.add(new Event(name, time, rating, image, latitude, longitude));
     }
 
     private void putEventsOnView() {
-        ArrayAdapter<Event> adaptor = new myListAdaptor();
+        ArrayAdapter<Event> adapter = new myListAdapter();
         ListView list = (ListView) findViewById(R.id.eventListView);
-        list.setAdapter(adaptor);
+        list.setAdapter(adapter);
+
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Event currentEvent = events.get(events.size()-(position+1));
+
+                createRankingDialog(currentEvent);
+            }
+        });
+
+        list.setAdapter(adapter);
     }
 
-    private class myListAdaptor extends ArrayAdapter<Event> {
-        public myListAdaptor() {
+    private void createRankingDialog(final Event currentEvent) {
+        Dialog rankDialog = new Dialog(MainActivity.this, R.style.FullHeightDialog);
+        RatingBar ratingBar = new RatingBar(getApplicationContext());
+
+        rankDialog = new Dialog(MainActivity.this, R.style.FullHeightDialog);
+        rankDialog.setContentView(R.layout.rank_dialog);
+        rankDialog.setCancelable(true);
+        ratingBar = (RatingBar)rankDialog.findViewById(R.id.dialog_ratingbar);
+        ratingBar.setRating(3);
+
+        TextView text = (TextView) rankDialog.findViewById(R.id.rank_dialog_text1);
+        text.setText(currentEvent.getName());
+
+        Button updateButton = (Button) rankDialog.findViewById(R.id.rank_dialog_button);
+        final Dialog finalRankDialog = rankDialog;
+        updateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                finalRankDialog.dismiss();
+            }
+        });
+        //now that the dialog is set up, it's time to show it
+        rankDialog.show();
+    }
+
+    private class myListAdapter extends ArrayAdapter<Event> {
+        public myListAdapter() {
             super(MainActivity.this, R.layout.eventlistlayout, events);
         }
 

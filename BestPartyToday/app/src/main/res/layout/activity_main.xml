@@ -33,9 +33,9 @@
             android:layout_alignParentStart="true"
             android:clickable="true"
             android:layout_alignBottom="@+id/nearbyButton"
-            android:background="#F0F8FF"
             android:layout_weight="1"
-            android:src="@drawable/ic_home_black_48dp" />
+            android:src="@drawable/ic_home_white_48dp"
+            android:background="#2c2a2a" />
 
         <ImageButton
             android:layout_width="0dp"
@@ -47,8 +47,8 @@
             android:layout_toRightOf="@+id/listButton"
             android:layout_toEndOf="@+id/listButton"
             android:layout_weight="1"
-            android:background="#F0F8FF"
-            android:src="@drawable/ic_search_black_48dp" />
+            android:src="@drawable/ic_search_white_48dp"
+            android:background="#2c2a2a" />
 
         <ImageButton
             android:layout_width="0dp"
@@ -58,9 +58,9 @@
             android:clickable="true"
             android:layout_alignTop="@+id/activityButton"
             android:layout_centerHorizontal="true"
-            android:background="#F0F8FF"
             android:layout_weight="1"
-            android:src="@drawable/ic_location_on_black_48dp" />
+            android:src="@drawable/ic_location_on_white_48dp"
+            android:background="#2c2a2a" />
 
         <ImageButton
             style="?android:attr/buttonStyleSmall"
@@ -72,8 +72,8 @@
             android:layout_toRightOf="@+id/nearbyButton"
             android:layout_toEndOf="@+id/nearbyButton"
             android:clickable="true"
-            android:background="#F0F8FF"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:background="#2c2a2a" />
 
         <ImageButton
             style="?android:attr/buttonStyleSmall"
@@ -85,9 +85,9 @@
             android:layout_alignTop="@+id/activityButton"
             android:layout_toRightOf="@+id/activityButton"
             android:layout_toEndOf="@+id/activityButton"
-            android:background="#F0F8FF"
             android:layout_weight="1"
-            android:src="@drawable/ic_settings_black_48dp" />
+            android:src="@drawable/ic_settings_white_48dp"
+            android:background="#2c2a2a" />
     </LinearLayout>
 
 </RelativeLayout>

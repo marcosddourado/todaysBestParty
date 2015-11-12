@@ -9,13 +9,18 @@ public class Event {
     private String time;
     private float rating;
     private String image;
+    private float latitude;
+    private float longitude;
 
-    public Event(String name, String time, float rating, String image) {
+
+    public Event(String name, String time, float rating, String image, float latitude, float longitude) {
         super();
         this.name = name;
         this.time = time;
         this.rating = rating;
         this.image = image;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     public String getName() {
@@ -31,5 +36,13 @@ public class Event {
 
     public float getRating() {
         return rating;
+    }
+
+    public float getLatitude() {
+        return latitude;
+    }
+
+    public float getLongitude() {
+        return longitude;
     }
 }
