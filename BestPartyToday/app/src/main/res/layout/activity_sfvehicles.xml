@@ -41,10 +41,8 @@
             android:layout_toEndOf="@+id/listButton"
             android:layout_toRightOf="@+id/listButton"
             android:layout_weight="1"
-            android:background="#2c2a2a"
-            android:clickable="true"
-            android:src="@drawable/ic_search_white_48dp"
-            android:text="Search" />
+            android:background="#2c2a2a"/>
+
 
         <ImageButton
             android:id="@+id/nearbyButton"
