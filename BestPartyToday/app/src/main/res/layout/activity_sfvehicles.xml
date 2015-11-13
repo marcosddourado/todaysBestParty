@@ -28,7 +28,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_weight="1"
-            android:background="#2c2a2a"
+            android:background="#3E3E3D"
             android:clickable="true"
             android:src="@drawable/ic_home_white_48dp"
             android:text="List" />
@@ -41,7 +41,7 @@
             android:layout_toEndOf="@+id/listButton"
             android:layout_toRightOf="@+id/listButton"
             android:layout_weight="1"
-            android:background="#2c2a2a"/>
+            android:background="#3E3E3D"/>
 
 
         <ImageButton
@@ -51,7 +51,7 @@
             android:layout_alignTop="@+id/activityButton"
             android:layout_centerHorizontal="true"
             android:layout_weight="1"
-            android:background="#2c2a2a"
+            android:background="#3E3E3D"
             android:clickable="true"
             android:src="@drawable/ic_location_on_white_48dp"
             android:text="Nearby" />
@@ -65,7 +65,7 @@
             android:layout_toEndOf="@+id/nearbyButton"
             android:layout_toRightOf="@+id/nearbyButton"
             android:layout_weight="1"
-            android:background="#2c2a2a"
+            android:background="#3E3E3D"
             android:clickable="true"
             android:src="@drawable/ic_favorite_white_48dp"
             android:text="Activity" />
@@ -79,7 +79,7 @@
             android:layout_toEndOf="@+id/activityButton"
             android:layout_toRightOf="@+id/activityButton"
             android:layout_weight="1"
-            android:background="#2c2a2a"
+            android:background="#3E3E3D"
             android:clickable="true"
             android:src="@drawable/ic_settings_white_48dp"
             android:text="More" />

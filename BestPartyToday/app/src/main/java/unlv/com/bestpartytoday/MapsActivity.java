@@ -35,7 +35,6 @@ public class MapsActivity extends FragmentActivity  implements GoogleMap.OnCamer
 
     private static final int INITIAL_ZOOM_LEVEL = 12;
 
-
     private GoogleMap map;
     private Circle searchCircle;
     private LatLng location;

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="2dip"
+    android:background="#f5f8fd">
+
+    <TextView
+        android:text="Checking your location"
+        android:id="@+id/checker_dialog_title"
+        android:textSize="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="#353f5e"
+        android:textColor="#f5f8fd"
+        android:textStyle="bold"
+        android:textAlignment="center" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/checker_dialog_text"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#353f5e"
+        android:textAlignment="center" />
+
+    <Button android:id="@+id/rank_dialog_button"
+        android:layout_height="wrap_content"
+        android:text="OK"
+        android:focusable="false"
+        android:layout_margin="5dip"
+        android:textColor="#f5f8fd"
+        android:textSize="20dip"
+        android:layout_width="fill_parent" />
+
+</LinearLayout>

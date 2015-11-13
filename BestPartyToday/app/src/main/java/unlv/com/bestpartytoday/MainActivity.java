@@ -2,7 +2,6 @@ package unlv.com.bestpartytoday;
 
 import android.app.Dialog;
 import android.content.Intent;
-import android.location.Location;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,28 +10,18 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.firebase.client.ChildEventListener;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.Query;
-import com.firebase.client.ValueEventListener;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.Circle;
-import com.google.android.gms.maps.model.CircleOptions;
-import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -140,6 +129,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 finalRankDialog.dismiss();
+
+                Intent intent = new Intent(MainActivity.this, LocationChecker.class);
+                intent.putExtra("eventLatitude", currentEvent.getLatitude());
+                intent.putExtra("eventLongitude", currentEvent.getLongitude());
+                intent.putExtra("eventName", currentEvent.getName());
+                startActivity(intent);
             }
         });
         //now that the dialog is set up, it's time to show it
