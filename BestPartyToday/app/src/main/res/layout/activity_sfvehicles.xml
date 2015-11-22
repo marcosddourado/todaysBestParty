@@ -42,7 +42,7 @@
             android:layout_toRightOf="@+id/listButton"
             android:layout_weight="1"
             android:clickable="true"
-            android:src="@drawable/ic_home_search_48dp"
+            android:src="@drawable/ic_search_white_48dp"
             android:background="#3E3E3D"/>
 
 
