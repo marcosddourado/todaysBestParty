@@ -41,6 +41,8 @@
             android:layout_toEndOf="@+id/listButton"
             android:layout_toRightOf="@+id/listButton"
             android:layout_weight="1"
+            android:clickable="true"
+            android:src="@drawable/ic_home_search_48dp"
             android:background="#3E3E3D"/>
 
 
@@ -51,8 +53,8 @@
             android:layout_alignTop="@+id/activityButton"
             android:layout_centerHorizontal="true"
             android:layout_weight="1"
-            android:background="#3E3E3D"
-            android:clickable="true"
+            android:background="#2c2a2a"
+            android:clickable="false"
             android:src="@drawable/ic_location_on_white_48dp"
             android:text="Nearby" />
 
