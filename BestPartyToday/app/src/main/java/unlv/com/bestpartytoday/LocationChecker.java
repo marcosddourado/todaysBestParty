@@ -71,27 +71,25 @@ public class LocationChecker extends FragmentActivity implements OnMapReadyCallb
                 Location.distanceBetween(usrLocation.getLatitude(), usrLocation.getLongitude(),
                         circle.getCenter().latitude, circle.getCenter().longitude, distance);
 
-                Dialog rankDialog = new Dialog(LocationChecker.this, R.style.FullHeightDialog);
-                RatingBar ratingBar = new RatingBar(getApplicationContext());
+                Dialog locationDialog = new Dialog(LocationChecker.this, R.style.FullHeightDialog);
 
-                rankDialog = new Dialog(LocationChecker.this, R.style.FullHeightDialog);
-                rankDialog.setContentView(R.layout.location_checker_dialog);
-                rankDialog.setCancelable(true);
-                TextView text = (TextView) rankDialog.findViewById(R.id.checker_dialog_text);
+                locationDialog = new Dialog(LocationChecker.this, R.style.FullHeightDialog);
+                locationDialog.setContentView(R.layout.location_checker_dialog);
+                locationDialog.setCancelable(true);
+                TextView text = (TextView) locationDialog.findViewById(R.id.checker_dialog_text);
 
 
                 if (distance[0] <= circle.getRadius()) {
-                    text.setText("Successfully rated!\n Have an awesome party! ");
+                    text.setText("Successfully rated. Have an awesome party! ");
                 } else {
                     text.setText("You need to be inside the party to rank it.");
                 }
 
-                Button updateButton = (Button) rankDialog.findViewById(R.id.rank_dialog_button);
-                final Dialog finalRankDialog = rankDialog;
+                Button updateButton = (Button) locationDialog.findViewById(R.id.rank_dialog_button);
+                final Dialog finalRankDialog = locationDialog;
                 updateButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
                         finalRankDialog.dismiss();
 
                         Intent intent = new Intent(LocationChecker.this, MainActivity.class);
@@ -99,7 +97,7 @@ public class LocationChecker extends FragmentActivity implements OnMapReadyCallb
                     }
                 });
 
-                rankDialog.show();
+                locationDialog.show();
             }
         });
     }
