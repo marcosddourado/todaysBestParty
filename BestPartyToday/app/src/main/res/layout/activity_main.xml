@@ -35,7 +35,7 @@
             android:layout_alignBottom="@+id/nearbyButton"
             android:layout_weight="1"
             android:src="@drawable/ic_home_white_48dp"
-            android:background="#000000" />
+            android:background="#2c2a2a" />
 
 
         <ImageButton
