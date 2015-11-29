@@ -40,7 +40,9 @@
         android:text="LOGIN"
         android:id="@+id/login_button"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        android:background="#e1bf48c9"
+        android:textColor="#e4ace3" />
 
     <Button
         android:layout_width="wrap_content"
@@ -48,5 +50,7 @@
         android:text="sign up"
         android:id="@+id/signup_button"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        android:background="#e1bf48c9"
+        android:textColor="#e4ace3"/>
 </LinearLayout>
